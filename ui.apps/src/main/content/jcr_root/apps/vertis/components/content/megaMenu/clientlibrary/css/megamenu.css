@@ -1,0 +1,68 @@
+/* Reset some default styles */
+body, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Style for the navigation menu */
+.mega-menu {
+    display: flex;
+    background-color: cornflowerblue;
+    justify-content: flex-end;
+}
+
+/* Style for top-level menu items */
+.mega-menu > ul > li {
+    position: relative;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+/* Style for top-level menu links */
+.mega-menu > ul > li > a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for top-level menu links */
+.mega-menu > ul > li:hover > a {
+    background-color: #555;
+}
+
+/* Style for submenus */
+.mega-menu ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure submenus appear above other elements */
+}
+
+/* Style for second-level menu items */
+.mega-menu ul ul li {
+    padding: 10px;
+}
+
+/* Background color for subpages in the menu */
+.mega-menu ul ul li a {
+    background-color: #333;
+    color: #fff;
+    display: block;
+}
+
+/* Display submenu on hover */
+.mega-menu > ul > li:hover > ul {
+    display: block;
+}
+
+/* Hide submenu when not hovering */
+.mega-menu > ul > li:not(:hover) > ul {
+    display: none;
+}

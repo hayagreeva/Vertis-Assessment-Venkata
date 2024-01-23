@@ -1,0 +1,33 @@
+MegaMenu Component
+
+
+
+    <sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${templates.placeholder @ isEmpty = wcmmode.edit}" />
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='MegaMenu'}"/>
+
+
+
+<sly data-sly-use.megaMenuModel="com.aem.vertis.core.models.MegaMenuModel">
+    <div class="mega-menu">
+        <ul>
+            <!-- Iterate through top-level menu items -->
+            <sly data-sly-list.menuPage="${megaMenuModel.menuPages}">
+                <li>
+                    <a href="${menuPage.path}.html">${menuPage.title}</a>
+
+                    <ul><!-- Check if the menu item has sub-menu items -->
+                    <sly data-sly-list.subMenuPage="${menuPage.subMenuPages}">
+
+                            <!-- Iterate through sub-menu items -->
+                            <li><a href="${subMenuPage.path}.html">${subMenuPage.title}</a></li>
+
+                    </sly>
+                    </ul>
+                </li>
+            </sly>
+        </ul>
+    </div>
+</sly>
